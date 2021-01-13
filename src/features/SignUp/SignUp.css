@@ -49,6 +49,13 @@ form > hr {
 }
 
 .form__header > div {
+    cursor: pointer;
+    padding: .4rem;
+    padding-top: .6rem;
+    padding-bottom: .6rem;
+}
+
+.form__header > div > div {
     height: 3px;
     width: 1.5rem;
     background-color: #606771;
@@ -56,7 +63,7 @@ form > hr {
     transform: rotate(45deg);
 }
 
-.form__header > div::before {
+.form__header > div > div::before {
     content: '';
     position: absolute;
     height: 3px;

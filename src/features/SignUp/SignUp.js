@@ -1,10 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import './SignUp.css';
 import SignIn from '../SignIn/SignIn';
 
 function SignUp() {
+    const history = useHistory();
+
+    const hideSignUpForm = () => {
+        history.push('/');
+    }
+
     return (
         <div className="signUp">
             <SignIn />
@@ -13,7 +19,9 @@ function SignUp() {
                     <form>
                         <div className="form__header">
                             <h1>Sign Up</h1>
-                            <div/>
+                            <div onClick={hideSignUpForm}>
+                                <div/>
+                            </div>
                         </div>
                         <p>It's quick and easy.</p>
                         <hr/>
