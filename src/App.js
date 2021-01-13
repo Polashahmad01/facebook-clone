@@ -11,7 +11,7 @@ const App = () => {
       <div className="app">
         <Switch>
           <Route path="/signup">
-              <SignUp />
+            <SignUp />
           </Route>
           <Route path="/">
             <SignIn />

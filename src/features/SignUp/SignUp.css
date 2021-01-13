@@ -1,16 +1,26 @@
 .signUpForm {
+    padding-top: 5rem;
     position: absolute;
     top: 0%;
     left: 0%;
-    background-color: #F0F2F5;
-    opacity: .90;
+    background-color: rgba(255, 255, 255, .7);
     height: 100vh;
     width: 100vw;
     display: grid;
     place-items: center;
 }
+.signUpForm > p {
+    margin-top: -10rem;
+}
+
+.signUpForm > p > a {
+    font-weight: 700;
+    color: #1877F2;
+    margin-left: .5rem;
+}
 
 form {
+    opacity: 1;
     width: 432px;
     background-color: #FFFFFF;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
@@ -41,7 +51,7 @@ form > hr {
 .form__header > div {
     height: 3px;
     width: 1.5rem;
-    background-color: #333;
+    background-color: #606771;
     position: relative;
     transform: rotate(45deg);
 }
@@ -51,7 +61,7 @@ form > hr {
     position: absolute;
     height: 3px;
     width: 1.5rem;
-    background-color: #333;
+    background-color: #606771;
     transform: rotate(90deg);
 }
 
@@ -95,4 +105,29 @@ form > hr {
     border-radius: 5px;
     border: 1px solid #dddfe2;
     font-size: 15px;
+}
+
+.signUpFormGroup p {
+    font-size: 11px;
+    margin: .5rem 0;
+    font-weight: 400;
+}
+
+.signUpFormGroup > button {
+   background: #00a400;
+   display: block;
+    margin: .5rem auto;
+    border: none;
+    padding: .65rem 4.5rem;
+    border-radius: 5px;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    outline: none;
+    transition: all 200ms ease-in-out;
+}
+
+.signUpFormGroup > button:hover {
+    opacity: .9;
 }
