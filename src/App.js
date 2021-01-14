@@ -6,10 +6,14 @@ import SignUp from './features/SignUp/SignUp';
 import './App.css';
 
 const App = () => {
+
   return (
     <Router>
       <div className="app">
         <Switch>
+          <Route path="/home">
+            <h1>You Are Logged In</h1>
+          </Route>
           <Route path="/signup">
             <SignUp />
           </Route>

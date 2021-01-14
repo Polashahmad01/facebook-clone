@@ -1,12 +1,33 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import './SignIn.css';
+import auth from '../../firebase/firebase';
+import { signIn } from './signInSlice';
 
 const SignIn = () => {
+    const [ email, setEmail ] = useState('');
+    const [ password, setPassword ] = useState(''); 
+    const dispatch = useDispatch();
+    const history = useHistory();
 
-    const onSubmit = (e) => {
+    const logIn = (e) => {
         e.preventDefault();
+
+        auth
+        .signInWithEmailAndPassword(email, password)
+        .then((authUser) => {
+            dispatch(signIn({
+                email: authUser.user.email,
+                uid: authUser.user.uid,
+                dispalyName: authUser.user.displayName,
+                photoUrl: authUser.user.photoURL,
+            }))
+            history.push('/home');
+            console.log(authUser)
+        })
+        .catch((error) => alert(error.message));
     }
 
     return (
@@ -16,15 +37,25 @@ const SignIn = () => {
                     <p>Facebook helps you connect and share with the people in your life.</p>
                 </div>
                 <div className="signIn__right">
-                        <form onSubmit={onSubmit}>
+                        <form onSubmit={logIn}>
                             <div className="signIn__leftFormGroup">
-                                <input type="text" placeholder="Email address or phone number"/>
+                                <input 
+                                    type="email" 
+                                    placeholder="Email address"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
                             </div>
                             <div className="signIn__leftFormGroup">
-                                <input type="password" placeholder="Password" />
+                                <input 
+                                    type="password" 
+                                    placeholder="Password" 
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
                             </div>
                             <div className="signIn__leftFormGroup">
-                                <button className="signIn__leftFormSignIn">Log In</button>
+                                <button type='submit' className="signIn__leftFormSignIn">Log In</button>
                             </div>
                             <Link to="#">Forgotten password?</Link>
                             <hr/>

@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import signUpReducer from '../features/SignUp/signUpSlice';
+import signInReducer from '../features/SignIn/signInSlice';
 
 export default configureStore({
   reducer: {
-    counter: counterReducer,
+    signUp: signUpReducer,
+    signIn: signInReducer,
   },
 });
